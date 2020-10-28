@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>products-card-information-user demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../products-card-information-user.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic products-card-information-user demo</h3>
+      <demo-snippet>
+        <template>
+          <products-card-information-user 
+            username="Valeria Valencia" 
+            user-email="valencia@outlook.com" 
+            day="10" 
+            month="Octubre" 
+            year="2020" 
+            icon-top="icons:settings" 
+            icon-buttom="icons:input"
+            eventoarriba="eventoarriba">
+          </products-card-information-user>
+        </template>
+      </demo-snippet>
+    </div>
+    <script>
+      eventoarriba() {
+        console.log("holaa");
+      }
+    </script>
+  </body>
+</html>
