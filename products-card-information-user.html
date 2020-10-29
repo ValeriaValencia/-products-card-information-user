@@ -44,23 +44,21 @@
     <div class="content">
       <div>
         <div class="content-img-date">
-          <div class="image"><img src="{{srcimg}}"></div>
+          <div class="image"><img src="{{imagen}}"></div>
           <div>
             <div class="yearday">
-              <p>{{day}}</p>
-              <p>{{year}}</p>
+              <p>[[day]]</p>
+              <p>[[year]]</p>
             </div>
-            <p>{{month}}</p>
+            <p>[[month]]</p>
           </div>
         </div>
-        
         <div>{{username}}</div>
         <div>{{userEmail}}</div>
       </div>
-
       <div class="icons">
-        <paper-icon-button icon="{{iconTop}}" on-click="{{eventoarriba}}"></paper-icon-button>
-        <paper-icon-button icon="{{iconButtom}}" on-click="{{eventoabajo}}"></paper-icon-button>
+        <paper-icon-button icon="{{iconTop}}" on-click="_iconTopEvent"></paper-icon-button>
+        <paper-icon-button icon="{{iconButtom}}" on-click="_iconButtomEvent"></paper-icon-button>
       </div>
     </div>
   </template>
@@ -78,18 +76,40 @@
       static get is() { return 'products-card-information-user'; }
       static get properties() {
         return {
-          username: String,
+          imagen:  String,
+          userName: String,
           userEmail: String,
           dateD: String,
           srcimg: String,
           iconTop: String,
           iconButtom: String,
-          day: Number,
-          month: String,
-          year: Number,
-          eventoarriba: String,
-          eventoabajo: String
-        };
+          day: {
+            value: new Date().getDate()
+          },
+          month: {
+            value: new Date().getMonth()
+          },
+          year: {
+            value: new Date().getFullYear()
+          }
+        }
+      }
+      
+      _iconTopEvent() {
+        console.log("Evento del boton de configuracion y desde el componente");
+        this.dispatchEvent(new CustomEvent('icon-top-event', {
+          detail:'icon-top-user-information-componet',
+          bubbles: true,
+          composed: true
+        }));
+      }
+      _iconButtomEvent() {
+        console.log("Evento del boton de entrada y desde el componente");
+        this.dispatchEvent(new CustomEvent('icon-buttom-event', {
+          detail:'icon-buttom-user-information-componet',
+          bubbles: true,
+          composed: true
+        }));
       }
     }
 
